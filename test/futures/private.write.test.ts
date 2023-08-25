@@ -155,6 +155,18 @@ describe('Private Futures REST API POST Endpoints', () => {
     }
   });
 
+  it('closeAllPositions()', async () => {
+    try {
+      expect(await api.closeAllPositions('umcbl')).toMatchObject({
+        ...sucessEmptyResponseObject(),
+        data: {},
+      });
+    } catch (e) {
+      console.error('closeAllPositions: ', e);
+      expect(e).toBeNull();
+    }
+  });
+
   it('submitPlanOrder()', async () => {
     try {
       expect(

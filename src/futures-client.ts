@@ -404,6 +404,13 @@ export class FuturesClient extends BaseRestClient {
     });
   }
 
+  /** Close All Positions */
+  closeAllPositions(productType: FuturesProductType): Promise<APIResponse<any>> {
+    return this.postPrivate('/api/mix/v1/order/close-all-positions', {
+      productType,
+    });
+  }
+
   /** Get Open Order */
   getOpenSymbolOrders(symbol: string): Promise<APIResponse<any>> {
     return this.getPrivate('/api/mix/v1/order/current', { symbol });
